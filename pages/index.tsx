@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Button, Htag, Rating, Tag } from "../components";
 import { Ptag } from "../components/Ptag/Ptag";
+import { withLayout } from "../layout/Layout";
 
-export default function Home() {
+
+function Home() {
 
   const [rating, setRating] = useState<number>(4);
 
-
   return (
-    <div>
+    <>
       <Htag tag="h2">Hello</Htag>
       <Button appearance="primary" arrow="right">Кнопка</Button>
       <Button appearance="ghost" arrow="right">Кнопка</Button>
@@ -18,6 +19,8 @@ export default function Home() {
       <Tag size='s' color='gray'>Hh.ru</Tag>
       <Tag size='m' color='primary'>Hh.ru</Tag>
       <Rating isEditable={true} rating={rating} setRating={setRating} />
-    </div>
+    </>
   );
 }
+
+export default withLayout(Home);
